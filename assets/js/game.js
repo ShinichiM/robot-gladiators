@@ -58,7 +58,6 @@ var fight = function(enemy) {
 // ----------------------------------------- End Fight ----------------------------------------------------------
 
 // ---------------------------- Start Game -----------------------------------------
-//fight();
 var startGame = function() {
     //reset player stats
     playerInfo.reset();
@@ -138,9 +137,17 @@ var randomNumber = function(min, max) {
     return value;
 };
 //  ------------------------------------------ SETUP ----------------------------------------------------
+var getPlayerName = function() {
+    var name = "";
+    while (name === "" || name === null) {
+        name = window.prompt("What is your robot's name?");
+    };
+    console.log("Your robot's name is " + name);
+    return name;
+};
 
 var playerInfo = {
-    name: window.prompt("What is your robot's name?"),
+    name: getPlayerName(),
     health: 100,
     attack: 10,
     money: 10,
@@ -183,6 +190,5 @@ var enemyInfo = [
         attacK: randomNumber(10, 14)
     }
 ];
-
 // ----------------------------------------------- End Setup ------------------------------------------------------
 startGame();
